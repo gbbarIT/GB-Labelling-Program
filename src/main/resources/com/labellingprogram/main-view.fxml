@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane cache="true" cacheHint="SPEED" fitToWidth="true" maxHeight="1.7976931348623157E308"
+            maxWidth="1.7976931348623157E308" pannable="true" style="-fx-border-color: #e2e2e2;"
+            vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.labellingprogram.MainController">
+    <GridPane cache="true" cacheHint="SPEED">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+        </rowConstraints>
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1038.0" prefWidth="1221.0">
+            <BorderPane prefHeight="1026.0" prefWidth="1221.0" style="-fx-background-color: #e2e2e2;">
+                <left>
+                    <GridPane cache="true" cacheHint="SPEED" prefHeight="1.0" prefWidth="1.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                    </GridPane>
+                </left>
+                <top>
+                    <GridPane alignment="CENTER" prefHeight="115.0" prefWidth="1212.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="782.0" minWidth="10.0" prefWidth="157.0" />
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="894.6000122070312" minWidth="10.0" prefWidth="856.9999755859375" />
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="568.0" minWidth="10.0" prefWidth="205.8000244140626" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <padding>
+                            <Insets bottom="10.0" top="10.0" />
+                        </padding>
+                        <ImageView cache="true" cacheHint="SPEED" fitHeight="130.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <Image url="@styles/logo/GBLeftLogo.png" />
+                        </ImageView>
+                        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="96.0" prefWidth="231.0" GridPane.columnIndex="2">
+                            <columnConstraints>
+                                <ColumnConstraints maxWidth="84.199951171875" minWidth="10.0" prefWidth="53.799922943115234" />
+                                <ColumnConstraints maxWidth="184.0" minWidth="10.0" prefWidth="83.40007705688475" />
+                                <ColumnConstraints maxWidth="95.4000244140625" minWidth="10.0" prefWidth="79.4000244140625" />
+                                <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+                                <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="20.0" />
+                                <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="40.0" />
+                                <RowConstraints maxHeight="17.0" minHeight="0.0" prefHeight="0.0" />
+                                <RowConstraints maxHeight="17.599999999999994" minHeight="0.0" prefHeight="17.599999999999994" />
+                                <RowConstraints maxHeight="17.0" minHeight="10.0" prefHeight="30.0" />
+                            </rowConstraints>
+                            <Label text="v.0.0.2.5" GridPane.columnIndex="2" />
+                        </GridPane>
+                        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="96.0" prefWidth="888.0" GridPane.columnIndex="1">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="494.0" minWidth="10.0" prefWidth="419.1999450683594" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="535.7999755859374" minWidth="10.0" prefWidth="390.4000549316406" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="4.6000244140625455" prefWidth="7.7999755859375455" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <GridPane prefHeight="102.0" prefWidth="366.0" GridPane.columnIndex="1">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="129.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="131.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="73.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <RadioButton fx:id="selectAllChainsawRadio" cache="true" cacheHint="SPEED" mnemonicParsing="false" text="Select All Chainsaw" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <RadioButton fx:id="selectAllHarvesterRadio" cache="true" cacheHint="SPEED" mnemonicParsing="false" text="Select All Harvester" GridPane.rowIndex="3" />
+                                <Button fx:id="saveBtn" text="Save As PDF" GridPane.columnIndex="2" />
+                                <Button fx:id="printBtn" minWidth="73.0" prefHeight="25.0" text="Print" GridPane.columnIndex="1" />
+                            </GridPane>
+                            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="74.0" prefWidth="301.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="162.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="138.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <Button fx:id="clearListBtn" mnemonicParsing="false" text="Clear Import List" textOverrun="CLIP" GridPane.rowIndex="3" />
+                                <Button fx:id="importBtn" text="Import Excel File" GridPane.columnIndex="1" />
+                        <Button fx:id="unmarkAllBtn" mnemonicParsing="false" text="Unmark All " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                            </GridPane>
+                        </GridPane>
+                    </GridPane>
+                </top>
+                <center>
+                    <GridPane alignment="TOP_CENTER" cache="true" cacheHint="SPEED" hgap="5.0" prefHeight="876.0" prefWidth="1199.0" vgap="5.0" BorderPane.alignment="CENTER">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="809.0" minWidth="10.0" prefWidth="594.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="809.0" minWidth="10.0" prefWidth="554.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints maxHeight="990.4" minHeight="10.0" prefHeight="990.4" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <TabPane fx:id="labelTabPane" GridPane.columnIndex="1">
+                            <Tab fx:id="boxTab" closable="false" text="Harvester Box">
+                                <AnchorPane prefHeight="857.0" prefWidth="605.0" style="-fx-background-color: #FFFF;">
+                                    <Pane fx:id="stickerPane" focusTraversable="true" layoutX="20.0" style="-fx-background-color: #ffffff;">
+                                        <ImageView fx:id="imageImageView" cache="true" cacheHint="QUALITY" disable="true" fitHeight="794.0" fitWidth="558.0" pickOnBounds="true" preserveRatio="true">
+                                            <Image url="@templates/HarvesterBarBoxLabel102x152mm.png" />
+                                        </ImageView>
+                                        <TextField fx:id="bottomNweightTextField" layoutX="52.0" layoutY="722.0" prefHeight="34.0" prefWidth="97.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <opaqueInsets>
+                                                <Insets bottom="5.0" top="5.0" />
+                                            </opaqueInsets>
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <ImageView fx:id="barcodeImageView" cache="true" cacheHint="SPEED" fitHeight="124.0" fitWidth="235.0" layoutX="139.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true" />
+                                        <TextField fx:id="bottomLotNr1TextField" layoutX="54.0" layoutY="664.0" prefHeight="34.0" prefWidth="224.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="bodyProductModel" layoutX="82.0" layoutY="584.0" prefHeight="46.0" prefWidth="408.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="bodyCustomerPartNumber" layoutX="65.0" layoutY="535.0" prefHeight="31.0" prefWidth="448.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="48.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                        <TextArea fx:id="bodyCustomerDetail" accessibleRole="TEXT_FIELD" cache="true" cacheHint="SPEED" layoutX="20.0" layoutY="331.0" prefHeight="208.0" prefWidth="250.0" style="-fx-background-color: null;" stylesheets="@styles/styles.css" wrapText="true">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextArea>
+                                        <TextField fx:id="bodyXref" layoutX="75.0" layoutY="296.0" prefHeight="30.0" prefWidth="164.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="bodyFits" layoutX="64.0" layoutY="274.0" prefHeight="30.0" prefWidth="164.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="bodyLotNr" layoutX="415.0" layoutY="272.0" prefHeight="32.0" prefWidth="102.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="topMountType" alignment="CENTER" layoutX="19.0" layoutY="228.0" prefHeight="34.0" prefWidth="110.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                        <TextField fx:id="topMountWidth" alignment="CENTER" layoutX="20.0" layoutY="209.0" prefHeight="34.0" prefWidth="108.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="17.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="topBarDimInTextField" alignment="CENTER" layoutX="173.0" layoutY="209.0" prefHeight="34.0" prefWidth="96.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="topBarDimCmTextField" alignment="CENTER" layoutX="176.0" layoutY="229.0" prefHeight="34.0" prefWidth="96.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="topMountGauge" alignment="CENTER" layoutX="270.0" layoutY="208.0" prefHeight="19.0" prefWidth="107.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="topMountGaugeMm" alignment="CENTER" layoutX="271.0" layoutY="229.0" prefHeight="34.0" prefWidth="108.0" style=" -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                            </cursor>
+                                        </TextField>
+                                        <TextField fx:id="topChainPitch" alignment="CENTER" layoutX="377.0" layoutY="230.0" prefHeight="34.0" prefWidth="136.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="topPartNumber" layoutX="115.0" layoutY="3.0" prefHeight="79.0" prefWidth="403.0" style="-fx-background-color: none; -fc-color : black;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="51.0" />
+                                            </font>
+                                            <padding>
+                                                <Insets bottom="15.0" top="5.0" />
+                                            </padding>
+                                        </TextField>
+                                        <TextField fx:id="topProductModel" layoutX="104.0" layoutY="50.0" prefHeight="0.0" prefWidth="353.0" style="-fx-background-color: none;-fc-color : black " stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="bottomGweightTextField" layoutX="53.0" layoutY="751.0" prefHeight="34.0" prefWidth="95.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                              <TextField fx:id="bottomPartNumber" layoutX="20.0" layoutY="639.0" prefHeight="34.0" prefWidth="490.0" style="-fx-background-color: none; -fc-color : black;" stylesheets="@styles/styles.css">
+                                 <font>
+                                    <Font name="Arial Bold" size="19.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="15.0" top="5.0" />
+                                 </padding>
+                              </TextField>
+                                    </Pane>
+                                </AnchorPane>
+                            </Tab>
+                            <Tab fx:id="sleeveTab" closable="false" text="Harvester Sleeve">
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FFFF;">
+                                    <Pane fx:id="sleevePane" focusTraversable="true" layoutX="23.0" style="-fx-background-color: none; -fx-border-color: none;">
+                                        <ImageView fx:id="sleeveImageView" cache="true" cacheHint="QUALITY" fitHeight="794.0" fitWidth="573.0" pickOnBounds="true" preserveRatio="true">
+                                            <Image url="@templates/HarvesterBarSleeveLabel102x152mm.png" />
+                                        </ImageView>
+                                        <ImageView fx:id="sleeveBarcodeImage" cache="true" cacheHint="QUALITY" disable="true" fitHeight="161.0" fitWidth="220.0" layoutX="292.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true" />
+                                        <TextField fx:id="sleeveLotNrTextField" layoutX="362.0" layoutY="391.0" prefHeight="32.0" prefWidth="162.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="sleeveCustomerPartNumber" layoutX="326.0" layoutY="363.0" prefHeight="36.0" prefWidth="195.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                        <TextField fx:id="sleeveXref" layoutX="27.0" layoutY="438.0" prefHeight="34.0" prefWidth="247.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="sleeveFits" layoutX="26.0" layoutY="388.0" prefHeight="34.0" prefWidth="247.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="sleeveTopMountType" alignment="CENTER" layoutX="20.0" layoutY="306.0" prefHeight="4.0" prefWidth="102.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                        <TextField fx:id="sleeveMountWidth" alignment="CENTER" layoutX="20.0" layoutY="284.0" prefHeight="5.0" prefWidth="102.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="17.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="sleeveTopBarDimInTextField" alignment="CENTER" layoutX="183.0" layoutY="285.0" prefHeight="30.0" prefWidth="91.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="sleeveTopBarDimCmTextField" alignment="CENTER" layoutX="183.0" layoutY="305.0" prefHeight="0.0" prefWidth="88.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="sleeveTopMountGauge" alignment="CENTER" layoutX="275.0" layoutY="285.0" prefHeight="0.0" prefWidth="106.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="sleeveTopMountGaugeMm" alignment="CENTER" layoutX="272.0" layoutY="305.0" prefHeight="0.0" prefWidth="107.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="sleeveTopChainPitch" alignment="CENTER" layoutX="380.0" layoutY="285.0" prefHeight="10.0" prefWidth="134.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="sleeveTopPartNumber" layoutX="121.0" layoutY="14.0" prefHeight="96.0" prefWidth="395.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="49.0" />
+                                            </font>
+                                            <padding>
+                                                <Insets bottom="15.0" top="5.0" />
+                                            </padding>
+                                        </TextField>
+                                        <TextField fx:id="sleeveTopProductModel" layoutX="110.0" layoutY="77.0" prefHeight="34.0" prefWidth="402.0" style="-fx-background-color: none;">
+                                            <font>
+                                                <Font name="Arial Bold" size="19.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextArea fx:id="sleeveBodyCustomerDetail" cache="true" cacheHint="SPEED" layoutX="28.0" layoutY="473.0" prefHeight="186.0" prefWidth="244.0" style="-fx-background-color: null;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextArea>
+                                    </Pane>
+                                </AnchorPane>
+                            </Tab>
+                            <Tab fx:id="chainBoxTab" closable="false" text="Chainsaw Box">
+                                <Pane prefWidth="547.0" style="-fx-background-color: #FFFF;">
+                                    <Pane fx:id="chainBoxPane" cache="true" cacheHint="QUALITY" layoutX="91.0">
+                                        <ImageView fx:id="chBoxImageView" disable="true" fitHeight="794.0" fitWidth="449.0" pickOnBounds="true" preserveRatio="true">
+                                            <Image url="@templates/ChainsawBoxLabel76x152mm.png" />
+                                        </ImageView>
+                                        <ImageView fx:id="chBoxBarcodeImageView" cache="true" cacheHint="SPEED" fitHeight="108.0" fitWidth="188.0" layoutX="138.0" layoutY="669.0" pickOnBounds="true" preserveRatio="true" />
+                                        <TextField fx:id="chBoxLot" layoutX="54.0" layoutY="667.0" prefHeight="30.0" prefWidth="126.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxProductModel2" layoutX="83.0" layoutY="597.0" prefHeight="39.0" prefWidth="307.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxCustomerPartNumber" layoutX="73.0" layoutY="561.0" prefHeight="65.0" prefWidth="307.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="29.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                        <TextArea fx:id="chBoxCustomerDetails" cache="true" cacheHint="SPEED" layoutX="14.0" layoutY="349.0" prefHeight="194.0" prefWidth="208.0" style="-fx-background-color: null;" stylesheets="@styles/styles.css" wrapText="true">
+                                            <font>
+                                                <Font name="Arial Bold" size="15.0" />
+                                            </font>
+                                        </TextArea>
+                                        <TextField fx:id="chBlockchainFits" layoutX="52.0" layoutY="289.0" prefHeight="30.0" prefWidth="199.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxInch" alignment="CENTER" layoutX="82.0" layoutY="228.0" prefHeight="30.0" prefWidth="72.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxLotNr" layoutX="287.0" layoutY="291.0" prefHeight="26.0" prefWidth="95.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxMountType" alignment="CENTER" layoutX="13.0" layoutY="228.0" prefHeight="30.0" prefWidth="69.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                        <TextField fx:id="chBoxGauge" alignment="CENTER" layoutX="149.0" layoutY="228.0" prefHeight="30.0" prefWidth="82.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxMm" alignment="CENTER" layoutX="150.0" layoutY="246.0" prefHeight="30.0" prefWidth="82.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxPitch" alignment="CENTER" layoutX="227.0" layoutY="228.0" prefHeight="0.0" prefWidth="96.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxDL" alignment="CENTER" layoutX="324.0" layoutY="228.0" prefHeight="0.0" prefWidth="62.0" style=" -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                            </cursor>
+                                        </TextField>
+                                        <TextField fx:id="chBoxNW" layoutX="53.0" layoutY="724.0" prefHeight="30.0" prefWidth="126.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxXref" layoutX="64.0" layoutY="311.0" prefHeight="30.0" prefWidth="157.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxCm" alignment="CENTER" layoutX="83.0" layoutY="246.0" prefHeight="30.0" prefWidth="72.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxGW" layoutX="55.0" layoutY="752.0" prefHeight="30.0" prefWidth="127.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chBoxPartNumber" layoutX="73.0" layoutY="6.0" prefHeight="69.0" prefWidth="311.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="34.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                        <TextField fx:id="chBoxProductModel1" layoutX="85.0" layoutY="46.0" prefHeight="39.0" prefWidth="299.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                              <TextField fx:id="chBottomBoxProductModel" layoutX="4.0" layoutY="644.0" prefHeight="30.0" prefWidth="328.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                              </TextField>
+                                    </Pane>
+                                </Pane>
+                            </Tab>
+                            <Tab fx:id="chainSleeveTab" closable="false" text="Chainsaw Sleeve">
+                                <Pane focusTraversable="true" style="-fx-background-color: #FFFF;">
+                                    <Pane fx:id="chainSleevePane" layoutX="91.0">
+                                        <ImageView fx:id="chSleeveImageView" cache="true" cacheHint="QUALITY" disable="true" fitHeight="794.0" fitWidth="573.0" pickOnBounds="true" preserveRatio="true">
+                                            <Image url="@templates/ChainsawSleeveLabel76x152mm.png" />
+                                        </ImageView>
+                                        <ImageView fx:id="chSleeveBarcodeImageView" cache="true" cacheHint="SPEED" fitHeight="123.0" fitWidth="172.0" layoutX="209.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true" />
+                                        <TextArea fx:id="chSleeveCustomerDetails" cache="true" cacheHint="SPEED" layoutX="21.0" layoutY="403.0" prefHeight="216.0" prefWidth="185.0" style="-fx-background-color: null;" stylesheets="@styles/styles.css" wrapText="true">
+                                            <font>
+                                                <Font name="Arial Bold" size="15.0" />
+                                            </font>
+                                        </TextArea>
+                                        <TextField fx:id="chSleeveFits" layoutX="13.0" layoutY="320.0" prefHeight="30.0" prefWidth="184.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chSleeveInch" alignment="CENTER" layoutX="84.0" layoutY="234.0" prefHeight="7.0" prefWidth="68.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chSleeveLotNr" layoutX="244.0" layoutY="318.0" prefHeight="32.0" prefWidth="142.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chSleeveMountType" alignment="CENTER" layoutX="14.0" layoutY="234.0" prefHeight="14.0" prefWidth="67.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                        <TextField fx:id="chSleeveGauge" alignment="CENTER" layoutX="153.0" layoutY="234.0" prefHeight="30.0" prefWidth="75.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chSleeveMm" alignment="CENTER" layoutX="152.0" layoutY="253.0" prefHeight="7.0" prefWidth="78.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chSleevePitch" alignment="CENTER" layoutX="228.0" layoutY="234.0" prefHeight="18.0" prefWidth="94.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chSleeveDL" alignment="CENTER" layoutX="325.0" layoutY="231.0" prefHeight="34.0" prefWidth="59.0" style=" -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                            </cursor>
+                                        </TextField>
+                                        <TextField fx:id="chSleeveXref" layoutX="13.0" layoutY="364.0" prefHeight="30.0" prefWidth="159.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chSleeveCm" alignment="CENTER" layoutX="85.0" layoutY="253.0" prefHeight="6.0" prefWidth="68.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="chSleevePartNumber" layoutX="74.0" layoutY="8.0" prefHeight="63.0" prefWidth="317.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="35.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                        <TextField fx:id="chSleeveProductModel" layoutX="85.0" layoutY="48.0" prefHeight="39.0" prefWidth="285.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextArea fx:id="chSleeveNotes" layoutX="20.0" layoutY="630.0" prefHeight="82.0" prefWidth="188.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css" wrapText="true">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                        </TextArea>
+                                        <TextField fx:id="chSleeveCustomerPartNumber" alignment="CENTER" layoutX="198.0" layoutY="293.0" prefHeight="33.0" prefWidth="184.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
+                                            <font>
+                                                <Font name="Arial Bold" size="16.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </TextField>
+                                    </Pane>
+                                </Pane>
+                            </Tab>
+                            <Tab fx:id="partsTab" closable="false" text="Noses &amp; Sprockets">
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FFFF;">
+                                    <Pane layoutX="14.0" layoutY="14.0">
+                                        <ImageView fitHeight="433.0" fitWidth="502.0" pickOnBounds="true" preserveRatio="true">
+                                            <Image url="@templates/PartsLabel60x60mm.png" />
+                                        </ImageView>
+                                    </Pane>
+                                </AnchorPane>
+                            </Tab>
+                        </TabPane>
+                        <TabPane fx:id="excelTab" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="901.0" prefWidth="645.0" style="-fx-background-color: #FFFF;">
+                            <tabs>
+                                <Tab fx:id="customTab" closable="false" text="Custom">
+                                    <content>
+                                        <TabPane fx:id="tabSideNav" cache="true" cacheHint="SPEED" side="RIGHT">
+                                            <padding>
+                                                <Insets bottom="10.0" />
+                                            </padding>
+                                        </TabPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </TabPane>
+                    </GridPane>
+                </center>
+                <right>
+                    <GridPane cache="true" cacheHint="SPEED" prefHeight="1.0" prefWidth="1.0" BorderPane.alignment="CENTER">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                    </GridPane>
+                </right>
+                <bottom>
+                    <GridPane cache="true" cacheHint="SPEED" prefHeight="4.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                    </GridPane>
+                </bottom>
+            </BorderPane>
+        </VBox>
+    </GridPane>
+</ScrollPane>
