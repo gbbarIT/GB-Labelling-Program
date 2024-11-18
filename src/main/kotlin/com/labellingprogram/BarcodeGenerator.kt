@@ -15,8 +15,20 @@ import java.awt.image.BufferedImage
 import java.io.IOException
 import java.util.Hashtable
 
+/**
+ * A class designed to generate EAN-13 barcodes.
+ */
 class BarcodeGenerator {
 
+    /**
+     * Generates an EAN-13 barcode as an Image.
+     *
+     * @param barcodeText the text to be encoded into the barcode. Must be either 12 or 13 digits.
+     * @return Image of the generated barcode, or null if the input is null or empty.
+     * @throws WriterException if an error occurs during barcode writing.
+     * @throws IOException if an IO error occurs.
+     * @throws IllegalArgumentException if the input text is not 12 or 13 digits long.
+     */
     @Throws(WriterException::class, IOException::class)
     fun generateEAN13Barcode(barcodeText: String?): Image? {
         // Check if the barcodeText is null or empty

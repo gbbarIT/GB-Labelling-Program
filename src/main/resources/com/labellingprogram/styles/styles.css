@@ -1,0 +1,23 @@
+/* src/main/resources/styles.css */
+
+@font-face {
+
+    font-family: arialbd;
+}
+
+.root {
+    -fx-font-family: 'arial';
+}
+
+
+.sheet-text {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-fill: #000000;
+}
+
+.customer-text {
+    -fx-font-size: 14px;
+    -fx-fill: #333333;
+    -fx-padding: 5px;
+}

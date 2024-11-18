@@ -167,10 +167,12 @@ class MainController {
             saveSelectedItemsAsBulkPDF()
         }
 
+        // Retrieve and process previously imported Excel file paths
         val importedFilePaths = getImportedFilePaths()
         if (importedFilePaths.isNotEmpty()) {
             val parser = ExcelParser()
 
+            // Display loading dialog to the user
             val loadingDialog = Alert(Alert.AlertType.INFORMATION)
             loadingDialog.title = "Loading Labels"
             loadingDialog.headerText = "Please wait, loading previous labels..."
@@ -178,11 +180,11 @@ class MainController {
             loadingDialog.dialogPane.content = VBox(loadingLabel)
             loadingDialog.show()
 
+            // Task to load and parse Excel files in the background
             val loadTask = object : Task<Void>() {
                 override fun call(): Void? {
                     importedFilePaths.forEachIndexed { index, filePath ->
                         val file = File(filePath)
-
 
                         if (file.exists()) {
                             val parsedData = parser.parseExcelFileMultipleSheets(file)
@@ -190,9 +192,11 @@ class MainController {
                                 allExcelData.addAll(parsedData)
                                 createNewTabForFile(file.name, parsedData)
 
+                                // Update loading dialog with progress
                                 updateMessage("Loaded ${index + 1} of ${importedFilePaths.size} files")
                             }
                         } else {
+                            // Remove non-existing file path from properties
                             removeImportedFilePath(filePath)
                         }
                     }
@@ -200,18 +204,26 @@ class MainController {
                 }
             }
 
+            // Bind loading label text to task message
             loadingLabel.textProperty().bind(loadTask.messageProperty())
 
+            // Close the loading dialog upon task completion
             loadTask.setOnSucceeded {
                 loadingDialog.close()
             }
 
+            // Start the loading task in a new thread
             Thread(loadTask).start()
         }
     }
 
     private val configFilePath = "config.properties"
 
+    /**
+     * Saves the last accessed folder path to a configuration file.
+     *
+     * @param folderPath The path of the last accessed folder.
+     */
     private fun saveLastAccessedFolder(folderPath: String) {
         val properties = Properties()
         if (Files.exists(Paths.get(configFilePath))) {
@@ -221,6 +233,11 @@ class MainController {
         properties.store(Files.newOutputStream(Paths.get(configFilePath)), null)
     }
 
+    /**
+     * Retrieves the last accessed folder path from the configuration file.
+     *
+     * @return The path of the last accessed folder, or an empty string if not found.
+     */
     private fun getLastAccessedFolder(): String {
         val properties = Properties()
         if (Files.exists(Paths.get(configFilePath))) {
@@ -232,6 +249,11 @@ class MainController {
 
     private val importedFilesKey = "importedFiles"
 
+    /**
+     * Saves the imported file paths into the configuration file.
+     *
+     * @param filePaths A list of file paths to be saved.
+     */
     private fun saveImportedFilePaths(filePaths: List<String>) {
         val properties = Properties()
         if (Files.exists(Paths.get(configFilePath))) {
@@ -241,6 +263,11 @@ class MainController {
         properties.store(Files.newOutputStream(Paths.get(configFilePath)), null)
     }
 
+    /**
+     * Retrieves the list of imported file paths from the configuration file.
+     *
+     * @return A list of imported file paths, or an empty list if none found.
+     */
     private fun getImportedFilePaths(): List<String> {
         val properties = Properties()
         if (Files.exists(Paths.get(configFilePath))) {
@@ -253,6 +280,11 @@ class MainController {
         return emptyList()
     }
 
+    /**
+     * Handles the importing of Excel files, and processes them accordingly.
+     *
+     * @param onLoaded A callback function to be executed once the files are loaded.
+     */
     private fun excelParser(onLoaded: () -> Unit) {
         val fileChooser = FileChooser()
 
@@ -326,7 +358,11 @@ class MainController {
         }
     }
 
-
+    /**
+     * Removes the specified file path from the list of imported files in the configuration file.
+     *
+     * @param fileName The name of the file to be removed.
+     */
     private fun removeImportedFilePath(fileName: String) {
         val properties = Properties()
         if (Files.exists(Paths.get(configFilePath))) {
@@ -341,7 +377,12 @@ class MainController {
         }
     }
 
-
+    /**
+     * Creates a new tab for the specified Excel file and displays its data.
+     *
+     * @param fileName The name of the Excel file.
+     * @param data The parsed data from the Excel file.
+     */
     private fun createNewTabForFile(fileName: String, data: List<Pair<String, Map<String, List<String>>>>) {
         val newTab = Tab(fileName)
         val innerTabPane = TabPane()
@@ -357,7 +398,12 @@ class MainController {
         excelTab.tabs.add(newTab)
     }
 
-
+    /**
+     * Displays the data in a list view for each sheet in the Excel file.
+     *
+     * @param data The parsed data from the Excel file.
+     * @param tabPane The tab pane to which the list views will be added.
+     */
     private fun displayAllListView(data: List<Pair<String, Map<String, List<String>>>>, tabPane: TabPane) {
         tabPane.tabs.clear()
 
@@ -460,6 +506,15 @@ class MainController {
         }
     }
 
+    /**
+     * Adds a row to the provided ListView with the given sheet data and index.
+     *
+     * @param sheetIndex The index of the sheet from which data is being read.
+     * @param sheetData A map containing the sheet data where the key is the column name and the value is a list of column values.
+     * @param rowIndex The index of the row from which data should be read.
+     * @param checkBox The CheckBox associated with the row for selection purposes.
+     * @param listView The ListView to which the row will be added.
+     */
     private fun addRowToListView(
         sheetIndex: Int,
         sheetData: Map<String, List<String>>,
@@ -482,7 +537,11 @@ class MainController {
         selectedItems.add(selectedItem)
     }
 
-
+    /**
+     * Toggles the selection state of all checkboxes.
+     *
+     * @param selectAll If true, all checkboxes will be selected; if false, all checkboxes will be deselected.
+     */
     private fun toggleAllCheckboxes(selectAll: Boolean) {
         selectedItems.forEach { (_, checkBox) ->
             checkBox.isSelected = selectAll
@@ -490,8 +549,14 @@ class MainController {
     }
 
 
+    /**
+     * Populates the text fields and images with the data from the selected row in the sheet.
+     *
+     * @param rowIndex The index of the row in the sheet.
+     * @param selectedSheetData The data from the sheet where the key is the column name and the value is a list of column values.
+     */
     private fun populateTextFieldsWithSelectedItem(rowIndex: Int, selectedSheetData: Map<String, List<String>>) {
-
+        // Extract values from the selected sheet data based on the row index
         val productModel = selectedSheetData["Product Model"]?.getOrNull(rowIndex) ?: ""
         val partNumber = selectedSheetData["Part Number"]?.getOrNull(rowIndex) ?: ""
         val pitch = selectedSheetData["Pitch"]?.getOrNull(rowIndex) ?: ""
@@ -510,14 +575,18 @@ class MainController {
         val netWeight = selectedSheetData["Net Weight"]?.getOrNull(rowIndex) ?: ""
         val grossWeight = selectedSheetData["Gross Weight"]?.getOrNull(rowIndex) ?: ""
 
+        // Extract barcode data
         val barcodeSleeve = selectedSheetData["Barcode"]?.getOrNull(rowIndex) ?: ""
         val barcodePackage = selectedSheetData["Barcode Package"]?.getOrNull(rowIndex) ?: ""
 
+        // Initialize barcode generator
         val barcodeGenerator = BarcodeGenerator()
 
+        // Variables to hold generated barcode images
         var barcodeBoxImage: Image? = null
         var barcodeSleeveImage: Image? = null
 
+        // Generate box barcode image if the barcodePackage is not blank
         if (barcodePackage.isNotBlank()) {
             try {
                 barcodeBoxImage = barcodeGenerator.generateEAN13Barcode(barcodePackage)
@@ -526,11 +595,12 @@ class MainController {
             }
         }
 
-
+        // Remove trailing .0 if present in dl
         if (dl.endsWith(".0")) {
             dl = dl.dropLast(2)
         }
 
+        // Generate sleeve barcode image if the barcodeSleeve is not blank
         if (barcodeSleeve.isNotBlank()) {
             try {
                 barcodeSleeveImage = barcodeGenerator.generateEAN13Barcode(barcodeSleeve)
@@ -539,9 +609,10 @@ class MainController {
             }
         }
 
+        // Set barcode image on the view
         barcodeImageView.image = barcodeBoxImage
 
-
+        // Populate various text fields and images in the UI with the extracted values
         topProductModel.text = productModel
         topPartNumber.text = partNumber
         topChainPitch.text = pitch
@@ -562,7 +633,7 @@ class MainController {
         bottomLotNr1TextField.text = lotNumber
         bottomPartNumber.text = partNumber
 
-        // Sleeve fields
+        // Populate sleeve fields
         sleeveBodyCustomerDetail.text = stickerDetail
         sleeveTopProductModel.text = productModel
         sleeveTopPartNumber.text = partNumber
@@ -579,7 +650,7 @@ class MainController {
         sleeveLotNrTextField.text = lotNumber
         sleeveBarcodeImage.image = barcodeSleeveImage
 
-        // Chain Box Fields
+        // Populate chain box fields
         chBoxProductModel1.text = productModel
         chBoxPartNumber.text = partNumber
         chBoxGW.text = grossWeight
@@ -601,6 +672,7 @@ class MainController {
         chBottomBoxProductModel.text = partNumber
         chBoxBarcodeImageView.image = barcodeBoxImage
 
+        // Populate sleeve chain fields
         chSleeveProductModel.text = productModel
         chSleevePartNumber.text = partNumber
         chSleeveCm.text = cm
@@ -616,7 +688,6 @@ class MainController {
         chSleeveCustomerDetails.text = stickerDetail
         chSleeveBarcodeImageView.image = barcodeSleeveImage
         chSleeveCustomerPartNumber.text = customerPartNumber
-
     }
 
 
@@ -626,6 +697,7 @@ class MainController {
             return
         }
 
+        // Create and display a progress dialog
         val progressDialog = Alert(Alert.AlertType.INFORMATION)
         progressDialog.title = "Printing Labels"
         progressDialog.headerText = "Please wait, printing labels..."
@@ -634,14 +706,16 @@ class MainController {
         progressDialog.dialogPane.content = VBox(10.0, progressBar, progressLabel)
         progressDialog.show()
 
+        // Define a background task for printing labels
         val task = object : Task<Void>() {
             override fun call(): Void? {
-                val document =
-                    PDDocument() // Open the document at the beginning and avoid using `use` here to control closing
-
+                // Initialize a new PDF document
+                val document = PDDocument()
                 try {
+                    // Count total items selected for printing
                     val totalItems = selectedItems.count { it.checkBox.isSelected }
-                    val tempFile = File.createTempFile("printed_label", ".pdf")  // Define tempFile here
+                    // Create a temporary file for the PDF
+                    val tempFile = File.createTempFile("printed_label", ".pdf")
 
                     if (totalItems == 0) {
                         val latch = CountDownLatch(1)
@@ -657,13 +731,14 @@ class MainController {
                                 latch.countDown()
                                 return@runLater
                             }
+                            // Determine the size of the labels
                             val (widthInches, heightInches) = when {
                                 boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                 chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
                                 else -> Pair(4.01575, 5.98425)  // Default size
                             }
+                            // Save the currently displayed pane to the PDF document
                             Print.saveMultiplePanes(pane, document, widthInches, heightInches, 300)
-
                             latch.countDown()
                         }
                         latch.await()
@@ -677,6 +752,7 @@ class MainController {
 
                                 val latch = CountDownLatch(1)
                                 Platform.runLater {
+                                    // Populate UI with data from the selected row
                                     populateTextFieldsWithSelectedItem(selectedRowIndex, selectedSheetData)
                                     val pane = getCurrentPane()
                                     if (pane == null) {
@@ -689,11 +765,13 @@ class MainController {
                                         latch.countDown()
                                         return@runLater
                                     }
+                                    // Determine the size of the labels
                                     val (widthInches, heightInches) = when {
                                         boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                         chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
                                         else -> Pair(4.01575, 5.98425)  // Default size
                                     }
+                                    // Save the populated pane to the PDF document
                                     Print.saveMultiplePanes(pane, document, widthInches, heightInches, 300)
                                     latch.countDown()
                                 }
@@ -706,10 +784,12 @@ class MainController {
                         }
                     }
 
-
+                    // Save the PDF document to the temporary file
                     document.save(tempFile)
                     Platform.runLater {
-                        Print.openPDFInDefaultViewer(tempFile)  // Open temp file for user
+                        // Open the saved PDF file for the user
+                        Print.openPDFInDefaultViewer(tempFile)
+                        // Close the progress dialog
                         progressDialog.close()
                     }
                 } finally {
@@ -721,9 +801,16 @@ class MainController {
 
         progressBar.progressProperty().bind(task.progressProperty())
         progressLabel.textProperty().bind(task.messageProperty())
+        // Start the background task
         Thread(task).start()
     }
 
+    /**
+     * Saves the selected items as a bulk PDF.
+     * If no data is available, an error message is shown.
+     * A file chooser is opened for the user to select a save location.
+     * A progress dialog is displayed during the save operation.
+     */
     private fun saveSelectedItemsAsBulkPDF() {
         if (allExcelData.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No data available for saving!", "Error", JOptionPane.ERROR_MESSAGE)
@@ -734,6 +821,7 @@ class MainController {
         fileChooser.extensionFilters.add(FileChooser.ExtensionFilter("PDF Files", "*.pdf"))
         val file = fileChooser.showSaveDialog(null) ?: return
 
+        // Display a progress dialog to the user
         val progressDialog = Alert(Alert.AlertType.INFORMATION)
         progressDialog.title = "Saving Labels"
         progressDialog.headerText = "Please wait, saving labels..."
@@ -743,6 +831,9 @@ class MainController {
         progressDialog.show()
 
         val task = object : Task<Void>() {
+            /**
+             * Background task for saving the selected items as a PDF.
+             */
             override fun call(): Void? {
                 val document = PDDocument()
 
@@ -764,11 +855,13 @@ class MainController {
                                 latch.countDown()
                                 return@runLater
                             }
+                            // Determine size of the labels
                             val (widthInches, heightInches) = when {
                                 boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                 chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
                                 else -> Pair(4.01575, 5.98425)  // Default size
                             }
+                            // Save the currently displayed pane to the PDF document
                             Print.saveMultiplePanes(pane, document, widthInches, heightInches, 300)
                             latch.countDown()
                         }
@@ -783,6 +876,7 @@ class MainController {
 
                                 val latch = CountDownLatch(1)
                                 Platform.runLater {
+                                    // Populate UI with data from the selected row
                                     populateTextFieldsWithSelectedItem(selectedRowIndex, selectedSheetData)
                                     val pane = getCurrentPane()
                                     if (pane == null) {
@@ -795,25 +889,30 @@ class MainController {
                                         latch.countDown()
                                         return@runLater
                                     }
+                                    // Determine size of the labels
                                     val (widthInches, heightInches) = when {
                                         boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                         chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
                                         else -> Pair(4.01575, 5.98425)  // Default size
                                     }
+                                    // Save the populated pane to the PDF document
                                     Print.saveMultiplePanes(pane, document, widthInches, heightInches, 300)
                                     latch.countDown()
                                 }
                                 latch.await()
 
                                 processedItems++
+                                // Update progress and status message
                                 updateProgress(processedItems.toLong(), totalItems.toLong())
                                 updateMessage("Processing $processedItems of $totalItems")
                             }
                         }
                     }
 
+                    // Save the PDF document
                     document.save(file)
                     Platform.runLater {
+                        // Close the progress dialog and notify success
                         progressDialog.close()
                         JOptionPane.showMessageDialog(
                             null,
@@ -831,36 +930,44 @@ class MainController {
 
         progressBar.progressProperty().bind(task.progressProperty())
         progressLabel.textProperty().bind(task.messageProperty())
+        // Start the background task
         Thread(task).start()
     }
 
 
     private fun getCurrentPane(): Pane? {
+        // Returns the currently selected pane based on the selected tab
         return when {
             boxTab.isSelected -> stickerPane
             sleeveTab.isSelected -> sleevePane
             chainSleeveTab.isSelected -> chainSleevePane
             chainBoxTab.isSelected -> chainBoxPane
-            else -> null
+            else -> null // If no matching tab is selected, return null      
         }
     }
-    
 
     private fun setupCustomTab() {
-        val vbox = VBox(10.0)
-        vbox.style = "-fx-padding: 10;"
+        // Setup the custom tab with buttons and a ListView
+        val vbox = VBox(10.0).apply {
+            style = "-fx-padding: 10;"
+        }
 
+        // Initialize custom tab buttons
         addCustomFieldBtn = Button("Add Custom Field")
         saveCustomBtn = Button("Save Custom Fields")
         exportCustomBtn = Button("Export Custom Fields")
-        customListView = ListView<HBox>()
-        VBox.setVgrow(customListView, Priority.ALWAYS)
 
+        // Initialize the ListView for custom fields
+        customListView = ListView<HBox>().apply {
+            VBox.setVgrow(this, Priority.ALWAYS) // Make ListView grow with the VBox
+        }
 
+        // Add buttons and ListView to the VBox
         vbox.children.addAll(addCustomFieldBtn, saveCustomBtn, exportCustomBtn, customListView)
+
+        // Set the VBox as the content for the customTab
         customTab.content = vbox
     }
-
 
 
     private fun populateCustomFields() {
@@ -868,6 +975,7 @@ class MainController {
         val tabPane = TabPane()
         tabPane.side = Side.RIGHT
 
+        // Define Chain Box fields with necessary fields and corresponding controls.
         val chainBoxFields = mutableMapOf(
             "Product Model (Chain Box)" to chBoxProductModel1,
             "Part Number (Chain Box)" to chBoxPartNumber,
@@ -891,6 +999,7 @@ class MainController {
             "Barcode" to TextField()
         )
 
+        // Define Chain Sleeve fields with necessary fields and corresponding controls.
         val chainSleeveFields = mutableMapOf(
             "Product Model (Chain Sleeve)" to chSleeveProductModel,
             "Part Number (Chain Sleeve)" to chSleevePartNumber,
@@ -909,6 +1018,7 @@ class MainController {
             "Barcode" to TextField()
         )
 
+        // Define Harvester Sleeve fields with necessary fields and corresponding controls.
         val sleeveFields = mutableMapOf(
             "Product Model (Sleeve)" to sleeveTopProductModel,
             "Part Number (Sleeve)" to sleeveTopPartNumber,
@@ -927,6 +1037,7 @@ class MainController {
             "Barcode" to TextField()
         )
 
+        // Define other Harvester Box fields with necessary fields and corresponding controls.
         val otherFields = mutableMapOf(
             "Product Model (Top)" to topProductModel,
             "Part Number (Top)" to topPartNumber,
@@ -950,40 +1061,55 @@ class MainController {
             "Barcode" to TextField()
         )
 
+        // Add the defined fields to the respective tabs in the TabPane.
         addFieldsToTab(chainBoxFields, "Chainsaw Bar Box", tabPane)
         addFieldsToTab(chainSleeveFields, "Chainsaw Bar Sleeve", tabPane)
         addFieldsToTab(sleeveFields, "Harvester Bar Sleeve", tabPane)
         addFieldsToTab(otherFields, "Harvester Bar Box", tabPane)
 
+        // Set the created TabPane to be the content of the customTab.
         customTab.content = tabPane
     }
 
     private fun addFieldsToTab(fields: Map<String, Control>, tabName: String, tabPane: TabPane) {
+        // Create a new Tab and VBox for the contents
         val tab = Tab(tabName)
         val vbox = VBox(10.0)
         vbox.style = "-fx-padding: 10;"
 
+        // Iterate over the fields map and add each field to the VBox
         fields.forEach { (key, field) ->
-            val customField = customFields.find { it.key == key } ?: CustomField(key, (field as TextInputControl).text).also { customFields.add(it) }
+            // Find or create a CustomField for each key
+            val customField = customFields.find { it.key == key } ?: CustomField(
+                key,
+                (field as TextInputControl).text
+            ).also { customFields.add(it) }
+
+            // Create a TextField and bind it to the customField value
             val valueField = TextField(customField.value)
 
+            // Listener to update the original field and customField when the valueField changes
             valueField.textProperty().addListener { _, _, newValue ->
                 (field as TextInputControl).text = newValue
                 customField.value = newValue
 
+                // Update barcode images if the field is a Barcode
                 if (key == "Barcode") {
                     updateBarcodeImages()
                 }
             }
 
+            // Listener to update the valueField when the original field changes
             (field as TextInputControl).textProperty().addListener { _, _, newValue ->
                 valueField.text = newValue
             }
 
+            // Create a TextField to display the key, set to be non-editable
             val keyField = TextField(key).apply {
                 isEditable = false
             }
 
+            // Create a Clear button to clear the valueField and original field
             val clearButton = Button("Clear").apply {
                 setOnAction {
                     valueField.text = ""
@@ -992,24 +1118,35 @@ class MainController {
                 }
             }
 
+            // Add the keyField, valueField, and clearButton to an HBox, then add the HBox to the VBox
             val hbox = HBox(10.0, keyField, valueField, clearButton)
             vbox.children.add(hbox)
         }
 
+        // Set the VBox as the content of the Tab and add the Tab to the TabPane
         tab.content = vbox
         tabPane.tabs.add(tab)
     }
 
+    /**
+     * Updates the barcode images displayed in various image views.
+     * This function retrieves the current barcode value from the custom fields,
+     * generates a barcode image, and updates the image views accordingly.
+     */
     private fun updateBarcodeImages() {
         val barcodeGenerator = BarcodeGenerator()
+        // Retrieve the barcode value from the custom fields; if not found, default to an empty string
         val barcodeValue = customFields.find { it.key == "Barcode" }?.value ?: ""
 
         println("Updating barcode with value: $barcodeValue")
 
         try {
+            // Check if the barcode value meets the required length (12 characters) for EAN-13 barcodes
             if (barcodeValue.length == 12) {
+                // Generate the barcode image using the EAN-13 standard
                 val barcodeImage = barcodeGenerator.generateEAN13Barcode(barcodeValue)
 
+                // Update the various image views with the newly generated barcode image
                 chSleeveBarcodeImageView.image = barcodeImage
                 sleeveBarcodeImage.image = barcodeImage
                 chBoxBarcodeImageView.image = barcodeImage
@@ -1020,6 +1157,7 @@ class MainController {
                 println("Invalid Barcode Length")
             }
         } catch (e: Exception) {
+            // Handle any exceptions that may occur during barcode generation
             println("Error generating barcode: ${e.message}")
         }
     }
