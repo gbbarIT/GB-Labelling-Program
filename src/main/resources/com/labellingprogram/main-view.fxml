@@ -21,9 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane cache="true" cacheHint="SPEED" fitToWidth="true" maxHeight="1.7976931348623157E308"
-            maxWidth="1.7976931348623157E308" pannable="true" style="-fx-border-color: #e2e2e2;"
-            vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.labellingprogram.MainController">
+<ScrollPane cache="true" cacheHint="SPEED" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pannable="true" style="-fx-border-color: #e2e2e2;" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.labellingprogram.MainController">
     <GridPane cache="true" cacheHint="SPEED">
         <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
@@ -449,7 +447,7 @@
                                                 <Insets bottom="10.0" />
                                             </opaqueInsets>
                                         </TextField>
-                                        <TextField fx:id="chBoxProductModel1" layoutX="85.0" layoutY="46.0" prefHeight="39.0" prefWidth="299.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                        <TextField fx:id="chBoxProductModel1" layoutX="87.0" layoutY="41.0" prefHeight="39.0" prefWidth="299.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
                                             <font>
                                                 <Font name="Arial Bold" size="16.0" />
                                             </font>
@@ -559,15 +557,60 @@
                                     </Pane>
                                 </Pane>
                             </Tab>
-                            <Tab fx:id="partsTab" closable="false" text="Noses &amp; Sprockets">
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FFFF;">
-                                    <Pane layoutX="14.0" layoutY="14.0">
-                                        <ImageView fitHeight="433.0" fitWidth="502.0" pickOnBounds="true" preserveRatio="true">
-                                            <Image url="@templates/PartsLabel60x60mm.png" />
-                                        </ImageView>
-                                    </Pane>
+                            <Tab fx:id="partsTab" closable="false" text="Chain Box">
+                                <AnchorPane prefHeight="872.0" prefWidth="510.0" style="-fx-background-color: #FFFF;">
+                                    <Pane layoutX="14.0" layoutY="14.0" />
+                           <ImageView fitHeight="673.0" fitWidth="539.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@templates/ChainsawBoxLabel76x102mm.png" />
+                              </image>
+                           </ImageView>
+                           <TextField fx:id="chBox2PartNumber" layoutX="128.0" layoutY="14.0" prefHeight="69.0" prefWidth="311.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
+                              <font>
+                                 <Font name="Arial Bold" size="34.0" />
+                              </font>
+                              <opaqueInsets>
+                                 <Insets bottom="10.0" />
+                              </opaqueInsets>
+                           </TextField>
+                           <TextField fx:id="chBox2LotNr" layoutX="160.0" layoutY="74.0" prefHeight="14.0" prefWidth="299.0" style=" -fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                              <font>
+                                 <Font name="Arial Bold" size="16.0" />
+                              </font>
+                           </TextField>
+                           <TextField fx:id="chBox2DL" alignment="CENTER" layoutX="113.0" layoutY="124.0" prefHeight="0.0" prefWidth="62.0" style=" -fx-background-color: none;" stylesheets="@styles/styles.css">
+                              <font>
+                                 <Font name="Arial Bold" size="16.0" />
+                              </font>
+                              <cursor>
+                                 <Cursor fx:constant="DEFAULT" />
+                              </cursor>
+                           </TextField>
+                           <TextArea fx:id="chBoxCustomerDetails1" cache="true" cacheHint="SPEED" layoutX="122.0" layoutY="293.0" prefHeight="194.0" prefWidth="208.0" style="-fx-background-color: null;" stylesheets="@styles/styles.css" wrapText="true">
+                              <font>
+                                 <Font name="Arial Bold" size="15.0" />
+                              </font>
+                           </TextArea>
+                           <ImageView fx:id="barcodeImageView2" cache="true" cacheHint="SPEED" fitHeight="205.0" fitWidth="92.0" layoutX="459.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
                                 </AnchorPane>
                             </Tab>
+                     <Tab fx:id="partsTab1" closable="false" text="Noses &amp; Sprockets">
+                        <content>
+                           <AnchorPane style="-fx-background-color: #FFFF;">
+                              <children>
+                                 <Pane layoutX="14.0" layoutY="14.0">
+                                    <children>
+                                       <ImageView fitHeight="433.0" fitWidth="502.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                             <Image url="@templates/PartsLabel60x60mm.png" />
+                                          </image>
+                                       </ImageView>
+                                    </children>
+                                 </Pane>
+                              </children>
+                           </AnchorPane>
+                        </content>
+                     </Tab>
                         </TabPane>
                         <TabPane fx:id="excelTab" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="901.0" prefWidth="645.0" style="-fx-background-color: #FFFF;">
                             <tabs>

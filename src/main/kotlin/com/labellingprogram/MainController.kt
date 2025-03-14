@@ -119,6 +119,12 @@ class MainController {
     lateinit var imageImageView: ImageView
     lateinit var stickerPane: Pane
 
+    lateinit var chBox2PartNumber: TextField
+    lateinit var chBox2LotNr: TextField
+    lateinit var chBox2DL: TextField
+    lateinit var barcodeImageView2: ImageView
+    lateinit var chBoxCustomerDetails1: TextArea
+
     private var allExcelData = mutableListOf<Pair<String, Map<String, List<String>>>>()
 
 
@@ -569,7 +575,7 @@ class MainController {
         val xref = selectedSheetData["Xref"]?.getOrNull(rowIndex) ?: ""
         val fits = selectedSheetData["Fits"]?.getOrNull(rowIndex) ?: ""
         val lotNumber = selectedSheetData["Lot Number"]?.getOrNull(rowIndex) ?: ""
-        val stickerDetail = selectedSheetData["Sticker Detai"]?.getOrNull(rowIndex) ?: ""
+        val stickerDetail = selectedSheetData["Sticker Detail"]?.getOrNull(rowIndex) ?: ""
         val customerPartNumber = selectedSheetData["Customer Part Number"]?.getOrNull(rowIndex) ?: ""
         var dl = selectedSheetData["DL"]?.getOrNull(rowIndex) ?: ""
         val netWeight = selectedSheetData["Net Weight"]?.getOrNull(rowIndex) ?: ""
@@ -688,6 +694,14 @@ class MainController {
         chSleeveCustomerDetails.text = stickerDetail
         chSleeveBarcodeImageView.image = barcodeSleeveImage
         chSleeveCustomerPartNumber.text = customerPartNumber
+
+        //Chain Box
+        chBox2PartNumber.text = partNumber
+        chBox2LotNr.text = lotNumber
+        chBox2DL.text = dl
+        barcodeImageView2.image = barcodeSleeveImage
+        chBoxCustomerDetails1.text = stickerDetail
+
     }
 
 
