@@ -11,7 +11,9 @@ class App : Application() {
         val fxmlLoader = FXMLLoader(App::class.java.getResource("/com/labellingprogram/main-view.fxml"))
         val scene = Scene(fxmlLoader.load())
 
+
         scene.stylesheets.add(App::class.java.getResource("/com/labellingprogram/styles/styles.css")!!.toExternalForm())
+
 
         stage.title = "Label Manager"
 
