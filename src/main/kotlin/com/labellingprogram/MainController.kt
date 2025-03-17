@@ -23,8 +23,6 @@ import javax.swing.JOptionPane
 class MainController {
 
 
-
-
     @FXML
     lateinit var customTab: Tab
     lateinit var unmarkAllBtn: Button
@@ -74,6 +72,7 @@ class MainController {
     lateinit var chBoxBarcodeImageView: ImageView
     lateinit var chBoxImageView: ImageView
     lateinit var chainBoxPane: Pane
+    lateinit var chainBoxPane2: Pane
     lateinit var chainSleevePane: Pane
     lateinit var labelTabPane: TabPane
     lateinit var sleeveBodyCustomerDetail: TextArea
@@ -133,6 +132,7 @@ class MainController {
     lateinit var chainSleeveTab: Tab
     lateinit var boxTab: Tab
     lateinit var sleeveTab: Tab
+    lateinit var chainBoxTab2: Tab
 
     private var selectedSheetIndex = 0
     private var selectedRowIndex = 0
@@ -746,9 +746,11 @@ class MainController {
                                 return@runLater
                             }
                             // Determine the size of the labels
+
                             val (widthInches, heightInches) = when {
                                 boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                 chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
+                                chainBoxTab2.isSelected -> Pair(3.9, 2.9)
                                 else -> Pair(4.01575, 5.98425)  // Default size
                             }
                             // Save the currently displayed pane to the PDF document
@@ -783,6 +785,7 @@ class MainController {
                                     val (widthInches, heightInches) = when {
                                         boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                         chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
+                                        chainBoxTab2.isSelected -> Pair(4.01575, 2.99213)
                                         else -> Pair(4.01575, 5.98425)  // Default size
                                     }
                                     // Save the populated pane to the PDF document
@@ -948,7 +951,6 @@ class MainController {
         Thread(task).start()
     }
 
-
     private fun getCurrentPane(): Pane? {
         // Returns the currently selected pane based on the selected tab
         return when {
@@ -956,6 +958,7 @@ class MainController {
             sleeveTab.isSelected -> sleevePane
             chainSleeveTab.isSelected -> chainSleevePane
             chainBoxTab.isSelected -> chainBoxPane
+            chainBoxTab2.isSelected -> chainBoxPane2
             else -> null // If no matching tab is selected, return null      
         }
     }
