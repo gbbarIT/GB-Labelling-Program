@@ -566,7 +566,7 @@
                                             </image>
                                         </ImageView>
 
-                                        <ImageView fx:id="barcodeImageView2" cache="true" cacheHint="SPEED" fitHeight="122.0" fitWidth="273.0" layoutX="383.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" rotate="270.0" scaleY="0.8" />
+                                        <ImageView fx:id="barcodeImageView2" cache="true" cacheHint="SPEED" fitHeight="122.0" fitWidth="273.0" layoutX="329.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" rotate="270.0" scaleY="0.8" />
 
                                         <TextField fx:id="chBox2PartNumber" layoutX="80.0" layoutY="-10.0" prefHeight="32.0" prefWidth="337.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
                                             <font>

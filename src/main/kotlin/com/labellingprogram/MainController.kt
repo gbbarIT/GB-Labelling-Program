@@ -700,6 +700,9 @@ class MainController {
         chBox2LotNr.text = lotNumber
         chBox2DL.text = dl
         barcodeImageView2.image = barcodeSleeveImage
+        barcodeImageView2.isPreserveRatio = false
+        barcodeImageView2.fitHeight = 90.0
+        barcodeImageView2.fitWidth = 330.0
         chBoxCustomerDetails1.text = stickerDetail
 
     }
@@ -785,7 +788,7 @@ class MainController {
                                     val (widthInches, heightInches) = when {
                                         boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                         chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
-                                        chainBoxTab2.isSelected -> Pair(4.01575, 2.99213)
+                                        chainBoxTab2.isSelected -> Pair(3.9, 2.9)
                                         else -> Pair(4.01575, 5.98425)  // Default size
                                     }
                                     // Save the populated pane to the PDF document
@@ -876,6 +879,7 @@ class MainController {
                             val (widthInches, heightInches) = when {
                                 boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                 chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
+                                chainBoxTab2.isSelected -> Pair(3.9, 2.9)
                                 else -> Pair(4.01575, 5.98425)  // Default size
                             }
                             // Save the currently displayed pane to the PDF document
@@ -910,6 +914,7 @@ class MainController {
                                     val (widthInches, heightInches) = when {
                                         boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                         chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
+                                        chainBoxTab2.isSelected -> Pair(3.9, 2.9)
                                         else -> Pair(4.01575, 5.98425)  // Default size
                                     }
                                     // Save the populated pane to the PDF document
