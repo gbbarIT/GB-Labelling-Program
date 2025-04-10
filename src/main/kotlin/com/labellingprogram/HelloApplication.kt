@@ -25,6 +25,7 @@ class App : Application() {
         stage.scene = scene
         stage.show()
     }
+
 }
 
 fun main() {

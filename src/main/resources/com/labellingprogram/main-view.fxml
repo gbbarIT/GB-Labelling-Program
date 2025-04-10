@@ -600,17 +600,51 @@
                                     </Pane>
                                 </Pane>
                             </Tab>
-                     <Tab fx:id="partsTab1" closable="false" text="Noses &amp; Sprockets">
+                     <Tab fx:id="sprocketTab" closable="false" text="Sprockets">
                         <content>
                            <AnchorPane style="-fx-background-color: #FFFF;">
                               <children>
-                                 <Pane layoutX="14.0" layoutY="14.0">
+                                 <Pane fx:id="sprocketPane" layoutX="14.0" layoutY="14.0">
                                     <children>
-                                       <ImageView fitHeight="433.0" fitWidth="502.0" pickOnBounds="true" preserveRatio="true">
+                                       <ImageView fx:id="sprocketImageView" fitHeight="433.0" fitWidth="502.0" pickOnBounds="true" preserveRatio="true">
                                           <image>
-                                             <Image url="@templates/PartsLabel60x60mm.png" />
+                                             <Image url="@templates/Parts%20Labelbackground_60x60mm.png" />
                                           </image>
                                        </ImageView>
+                                       <TextField fx:id="sprocketPartNumber" layoutX="82.0" prefHeight="87.0" prefWidth="354.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
+                                          <font>
+                                             <Font name="Arial Bold" size="48.0" />
+                                          </font>
+                                          <opaqueInsets>
+                                             <Insets bottom="10.0" />
+                                          </opaqueInsets>
+                                       </TextField>
+                                       <TextField fx:id="sprocketProductName" layoutX="14.0" layoutY="81.0" prefHeight="53.0" prefWidth="346.0" style="-fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                          <font>
+                                             <Font name="Arial Bold" size="29.0" />
+                                          </font>
+                                       </TextField>
+                                       <TextField fx:id="sproketCustomerNo" layoutX="242.0" layoutY="284.0" prefHeight="43.0" prefWidth="198.0" style="-fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                          <font>
+                                             <Font name="Arial Bold" size="24.0" />
+                                          </font>
+                                       </TextField>
+                                       <TextField fx:id="sprocketLotNo" layoutX="300.0" layoutY="331.0" prefHeight="33.0" prefWidth="143.0" style="-fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css">
+                                          <font>
+                                             <Font name="Arial Bold" size="18.0" />
+                                          </font>
+                                       </TextField>
+                                       <TextField fx:id="chBox2LotNr4" layoutX="242.0" layoutY="331.0" prefHeight="34.0" prefWidth="64.0" style="-fx-border-style: none; -fx-border-color: none; -fx-background-color: none;" stylesheets="@styles/styles.css" text="LOT:">
+                                          <font>
+                                             <Font name="Arial Bold" size="18.0" />
+                                          </font>
+                                       </TextField>
+                                       <ImageView fx:id="sprocketBarcodeImage" cache="true" cacheHint="QUALITY" disable="true" fitHeight="117.0" fitWidth="281.0" layoutX="3.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true" />
+                                       <TextArea fx:id="sprocketCustomerDetails" cache="true" cacheHint="SPEED" layoutX="26.0" layoutY="284.0" prefHeight="141.0" prefWidth="221.0" style="-fx-background-color: null;" stylesheets="@styles/styles.css" wrapText="true">
+                                          <font>
+                                             <Font name="Arial Bold" size="13.0" />
+                                          </font>
+                                       </TextArea>
                                     </children>
                                  </Pane>
                               </children>

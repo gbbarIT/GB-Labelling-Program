@@ -73,6 +73,7 @@ class MainController {
     lateinit var chBoxImageView: ImageView
     lateinit var chainBoxPane: Pane
     lateinit var chainBoxPane2: Pane
+    lateinit var sprocketPane: Pane
     lateinit var chainSleevePane: Pane
     lateinit var labelTabPane: TabPane
     lateinit var sleeveBodyCustomerDetail: TextArea
@@ -124,15 +125,21 @@ class MainController {
     lateinit var barcodeImageView2: ImageView
     lateinit var chBoxCustomerDetails1: TextArea
 
+    lateinit var sprocketPartNumber: TextField
+    lateinit var sprocketProductName: TextField
+    lateinit var sprocketBarcodeImage: ImageView
+    lateinit var sproketCustomerNo: TextField
+    lateinit var sprocketLotNo: TextField
+    lateinit var sprocketCustomerDetails: TextArea
+
     private var allExcelData = mutableListOf<Pair<String, Map<String, List<String>>>>()
 
-
-    lateinit var partsTab: Tab
     lateinit var chainBoxTab: Tab
     lateinit var chainSleeveTab: Tab
     lateinit var boxTab: Tab
     lateinit var sleeveTab: Tab
     lateinit var chainBoxTab2: Tab
+    lateinit var sprocketTab: Tab
 
     private var selectedSheetIndex = 0
     private var selectedRowIndex = 0
@@ -705,6 +712,14 @@ class MainController {
         barcodeImageView2.fitWidth = 330.0
         chBoxCustomerDetails1.text = stickerDetail
 
+        //Sprocket
+        sprocketPartNumber.text = partNumber
+        sprocketProductName.text = productModel
+        sprocketBarcodeImage.image = barcodeSleeveImage
+        sproketCustomerNo.text = customerPartNumber
+        sprocketLotNo.text = lotNumber
+        sprocketCustomerDetails.text = stickerDetail
+
     }
 
 
@@ -754,6 +769,7 @@ class MainController {
                                 boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                 chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
                                 chainBoxTab2.isSelected -> Pair(3.9, 2.9)
+                                sprocketTab.isSelected -> Pair(2.35, 2.35)
                                 else -> Pair(4.01575, 5.98425)  // Default size
                             }
                             // Save the currently displayed pane to the PDF document
@@ -789,6 +805,7 @@ class MainController {
                                         boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                         chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
                                         chainBoxTab2.isSelected -> Pair(3.9, 2.9)
+                                        sprocketTab.isSelected -> Pair(2.35, 2.35)
                                         else -> Pair(4.01575, 5.98425)  // Default size
                                     }
                                     // Save the populated pane to the PDF document
@@ -880,6 +897,7 @@ class MainController {
                                 boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                 chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
                                 chainBoxTab2.isSelected -> Pair(3.9, 2.9)
+                                sprocketTab.isSelected -> Pair(2.35, 2.35)
                                 else -> Pair(4.01575, 5.98425)  // Default size
                             }
                             // Save the currently displayed pane to the PDF document
@@ -915,6 +933,7 @@ class MainController {
                                         boxTab.isSelected || sleeveTab.isSelected -> Pair(4.01575, 5.98425)
                                         chainSleeveTab.isSelected || chainBoxTab.isSelected -> Pair(2.99213, 5.98425)
                                         chainBoxTab2.isSelected -> Pair(3.9, 2.9)
+                                        sprocketTab.isSelected -> Pair(2.35, 2.35)
                                         else -> Pair(4.01575, 5.98425)  // Default size
                                     }
                                     // Save the populated pane to the PDF document
@@ -964,6 +983,7 @@ class MainController {
             chainSleeveTab.isSelected -> chainSleevePane
             chainBoxTab.isSelected -> chainBoxPane
             chainBoxTab2.isSelected -> chainBoxPane2
+            sprocketTab.isSelected -> sprocketPane
             else -> null // If no matching tab is selected, return null      
         }
     }
