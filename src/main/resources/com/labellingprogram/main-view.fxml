@@ -568,7 +568,7 @@
 
                                         <ImageView fx:id="barcodeImageView2" cache="true" cacheHint="SPEED" fitHeight="122.0" fitWidth="273.0" layoutX="329.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" rotate="270.0" scaleY="0.8" />
 
-                                        <TextField fx:id="chBox2PartNumber" layoutX="80.0" layoutY="-10.0" prefHeight="32.0" prefWidth="337.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
+                                        <TextField fx:id="chBox2PartNumber" layoutX="80.0" layoutY="-10.0" prefHeight="87.0" prefWidth="468.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
                                             <font>
                                                 <Font name="Arial Bold" size="48.0" />
                                             </font>
@@ -611,9 +611,9 @@
                                              <Image url="@templates/Parts%20Labelbackground_60x60mm.png" />
                                           </image>
                                        </ImageView>
-                                       <TextField fx:id="sprocketPartNumber" layoutX="82.0" prefHeight="87.0" prefWidth="354.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
+                                       <TextField fx:id="sprocketPartNumber" layoutX="68.0" prefHeight="87.0" prefWidth="379.0" style="-fx-background-color: none;" stylesheets="@styles/styles.css">
                                           <font>
-                                             <Font name="Arial Bold" size="48.0" />
+                                             <Font name="Arial Bold" size="46.0" />
                                           </font>
                                           <opaqueInsets>
                                              <Insets bottom="10.0" />
